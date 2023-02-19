@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script type="text/javascript">jQuery(document).ready(function ($) { $(function () { AOS.init(); }); });  </script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 </head>
 <style>
   body::-webkit-scrollbar {
@@ -35,10 +40,37 @@
     text-shadow: 0 0 5px #000;
   }
 
+  .bg1 {
+    background: url("bg1.jpg");
+    background-size: cover;
+  }
+
   .logo {
     background: url("bg.jpg");
     background-size: cover;
     animation: ud 3s infinite linear;
+    filter: hue-rotate(30deg);
+
+  }
+
+  .logo:hover {
+    animation: hueChange .5s linear;
+    animation-iteration-count: initial;
+    filter: hue-rotate(0deg);
+  }
+
+  @keyframes hueChange {
+    0% {
+      filter: hue-rotate(30deg);
+    }
+
+    50% {
+      filter: hue-rotate(15deg);
+    }
+
+    100% {
+      filter: hue-rotate(0deg);
+    }
   }
 
   @keyframes ud {
@@ -79,59 +111,77 @@
 
     }
   }
-  
-.container{
-	display: flex;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-.static-text{
-	color: #fff;
-	font-size: 2rem;
-	font-weight: normal;
-	}
-.dynamic-text{
-	margin-left: 1.3em;
-	height: 90px;
-	line-height: 90px;
-	overflow:hidden;
-}
-.dynamic-text li{
-	list-style: none;
-	color: #005df3;
-	font-size: 2rem;
-	font-weight: 500;
-	position: relative;
-	top: 0;
-	animation: slide 12s steps(4) infinite;
-	}
-@keyframes slide{
-	100%{
-	top: -360px;
-}
-}
-.dynamic-text li span{
-	position: realtive;
-	margin: 5px 0;
-	line-height: 80px;
-	}
-.dynamic-text li span::after{
-	content: "";
-	position: absolute;
-	left: 0;
-	height: 70%;
-	width: 100%;
-  background: #3B82F6;
-	border-left: 5px solid #fff;
-	animation: typing 3s steps(10) infinite;
-}
-@keyframes typing{
-	40% , 60%{
-	left: calc(100% + 30px);
-	}
-	100%{
-	left: 0;
-}
-}
+
+  .container {
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .static-text {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: normal;
+  }
+
+  .dynamic-text {
+    margin-left: 1.3em;
+    height: 90px;
+    line-height: 90px;
+    overflow: hidden;
+  }
+
+  .dynamic-text li {
+    list-style: none;
+    color: #005df3;
+    font-size: 2rem;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+    animation: slide 12s steps(4) infinite;
+  }
+
+  @keyframes slide {
+    100% {
+      top: -360px;
+    }
+  }
+
+  .dynamic-text li span {
+    position: realtive;
+    margin: 5px 0;
+    line-height: 80px;
+  }
+
+  .dynamic-text li span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 25%;
+    height: 50%;
+    width: 100%;
+    background: #000040;
+    border-left: 5px solid #fff;
+    animation: typing 3s steps(10) infinite;
+  }
+
+  @keyframes typing {
+
+    40%,
+    60% {
+      left: calc(100% + 30px);
+    }
+
+    100% {
+      left: 0;
+    }
+
+  }
+
+  @media screen and (max-width:500px) {
+    .relative .triangle {
+      display: none;
+    }
+  }
 
 
   .bgp {
@@ -145,87 +195,250 @@
 
   }
 
+  .bsw {
+    box-shadow: 0 0 2px #fff;
+  }
+
   .triangle {
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    width: 500px;
-    height: 500px;
+    width: inherit;
+    height: inherit;
     background: rgb(63, 203, 251);
     background: -moz-radial-gradient(circle, rgba(63, 203, 251, 1) 0%, rgba(15, 109, 237, 0.9641981792717087) 66%);
     background: -webkit-radial-gradient(circle, rgba(63, 203, 251, 1) 0%, rgba(15, 109, 237, 0.9641981792717087) 66%);
     background: radial-gradient(circle, rgba(63, 203, 251, 1) 0%, rgba(15, 109, 237, 0.9641981792717087) 66%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3fcbfb", endColorstr="#0f6ded", GradientType=1);
   }
+
+  /* HumburgerMenu Animation */
+  .height {
+    height: 0;
+    transition: all 2s linear;
+
+  }
+
+
+
+  .show-Menu {
+    height: max-content;
+  }
+
+  .show {
+    animation: show .5s linear;
+    animation-iteration-count: initial;
+  }
+
+  .hide {
+    animation: hide .5s linear;
+    animation-iteration-count: initial;
+  }
+
+  @keyframes hide {
+    0% {
+      height: 10rem;
+
+    }
+
+    100% {
+      height: 0;
+    }
+  }
+
+  @keyframes show {
+    0% {
+      height: 0;
+    }
+
+    100% {
+      height: 10rem;
+    }
+  }
+
+
+
+  /* Menu Button 5 */
+  .menu-btn-5 {
+    height: 32px;
+    width: 40px;
+    cursor: pointer;
+  }
+
+  .menu-btn-5 span:nth-child(1),
+  .menu-btn-5 span:nth-child(1)::before,
+  .menu-btn-5 span:nth-child(1)::after {
+    background: #3fe5ff;
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    margin-top: 13px;
+
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    -o-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+
+  .menu-btn-5 span:nth-child(1)::before {
+    margin-top: -12px;
+
+    -webkit-transition: .3s ease-in-out .3s;
+    -moz-transition: .3s ease-in-out .3s;
+    -o-transition: .3s ease-in-out .3s;
+    transition: .3s ease-in-out .3s;
+  }
+
+  .menu-btn-5 span:nth-child(1)::after {
+    margin-top: 12px;
+
+    -webkit-transition: .3s ease-in-out .3s;
+    -moz-transition: .3s ease-in-out .3s;
+    -o-transition: .3s ease-in-out .3s;
+    transition: .3s ease-in-out .3s;
+  }
+
+  .menu-btn-5 span:nth-child(2) {
+    background: #3fe5ff;
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 3px;
+    margin-top: 13px;
+
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    -o-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+
+  .menu-btn-5.active span:nth-child(1)::before,
+  .menu-btn-5.active span:nth-child(1)::after {
+    margin-top: 0;
+  }
+
+  .menu-btn-5.active span:nth-child(1) {
+    -webkit-transition: .5s ease-in-out .6s;
+    -moz-transition: .5s ease-in-out .6s;
+    -o-transition: .5s ease-in-out .6s;
+    transition: .5s ease-in-out .5s;
+
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .menu-btn-5.active span:nth-child(2) {
+    width: 40px;
+
+    -webkit-transition: .3s ease-in-out .8s;
+    -moz-transition: .3s ease-in-out .8s;
+    -o-transition: .3s ease-in-out .8s;
+    transition: .3s ease-in-out .8s;
+  }
 </style>
 
 <body>
-  <section class="   w-screen h-screen bg-blue-500 " id="Home">
-    <nav class="flex fixed z-50 w-full justify-between shadow-2xl pr-5 p-l-5 bg-blue-700 p-2">
-      <ul class=" flex  text-blue-200 gap-5">
-        <a href="#Home" class="list-none ts text-2xl hover:text-pink-300 cursor-pointer font-bold ">Home</a>
-        <a href="#About" class="list-none ts text-2xl hover:text-pink-300 cursor-pointer font-bold ">About</a>
-        <a href="#Contact" class="list-none ts text-2xl hover:text-pink-300 cursor-pointer font-bold ">Skills</a>
-        <a href="#Contact" class="list-none ts text-2xl hover:text-pink-300 cursor-pointer font-bold ">Contact</a>
-      </ul>
+  <div class="fixed z-50 w-screen gap-5 flex flex-col justify-center items-center p-2">
+    <nav
+      class="flex justify-between items-center text-3xl rounded-2xl bsw backdrop-blur-xl p-2 text-white font-bold z-50 w-4/5 ">
+      <h1 class="text-xl sm:text-2xl">Prerna Tyagi</h1>
+      <div id="bar" class="menu-btn-5" onclick="menuBtnFunction(this)">
+        <span></span>
+        <span></span>
+      </div>
     </nav>
+    <ul id="Menu"
+      class=" bsw backdrop-blur-xl hide transition-all height rounded-2xl height  overflow-hidden  flex w-4/5 flex-col items-center justify-center items-center text-blue-200 gap-5">
+      <li class="pt-3"><a onclick="closeBar()" href="#Home"
+          class="list-none  ts text-2xl hover:text-pink-300 cursor-pointer font-bold ">Home</a></li>
+      <li class=""><a onclick="closeBar()" href="#About"
+          class="list-none  ts text-2xl hover:text-pink-300 cursor-pointer font-bold ">About</a></li>
+      <li class="pb-3"><a onclick="closeBar()" href="#Contact"
+          class="list-none  ts text-2xl hover:text-pink-300 cursor-pointer font-bold ">Contact</a></li>
+    </ul>
+  </div>
+  <section class=" bg1  w-screen h-screen bg-blue-500 " id="Home">
 
-    <div class="w-full h-full flex justify-center flex-col gap-8  items-center ">
+
+    <div class="w-full h-full flex justify-center flex-col gap-2  items-center ">
       <div class="w-[300px] h-[300px] shadow-2xl logo bg-black rounded-full"></div>
       <div class="container flex justify-center items-center">
-        <div class="static-text" >I'm a</div>
+        <div class="static-text">I'm a</div>
         <ul class="dynamic-text">
           <li><span>Developer</span></li>
           <li><span>Designer</span></li>
           <li><span>Artist</span></li>
         </ul>
       </div>
-      <h1 class="font-bold text-3xl text-blue-900 tsw"><span class="text-blue-200 ts pr-3">Hey!</span>Everyone</h1>
+      <h1 data-aos="zoom-in-up" data-aos-duration="1000"
+        class="font-bold sm:text-2xl sm:backdrop-blur-none backdrop-blur-md p-3 sm:p-0 rounded-2xl shadow-2xl sm:shadow-none  text-xl text-blue-900 sm:w-1/2 text-center tsw">
+        <span class="text-blue-200 ts pr-3">“Everyone
+          in this country should learn how to program because it teaches you how to think” <br> – Steve Jobs.
+      </h1>
     </div>
   </section>
 
-  <section class=" w-screen h-max pb-8 bg-slate-300" id="About">
+  <section class=" w-screen h-screen sm:h-max p-8  bg-slate-300" id="About">
     <div class="section-inner flex flex-col gap-5 justify-center items-center pt-6">
-      <h2 class="text-4xl text-center font-bold tsw"> About me</h2>
-      <h4 class="text-2xl bg-blue-400 rounded-xl text-white p-3 shadow-2xl text-justify font-semibold  w-1/2">I am
+      <h2 data-aos="fade-up" data-aos-duration="2000" class="sm:text-4xl text-3xl text-center font-bold tsw"> About me
+      </h2>
+      <h4 data-aos="fade-up" data-aos-duration="3000"
+        class="sm:text-2xl text-xl bg-blue-400 rounded-xl text-white p-3 shadow-2xl text-justify font-semibold  sm:w-1/2">
+        I am
         pursuing BCA from Silver Oak University.
         I am so curious to learn new technologies and build something, which can fix problems.
         With that motive, I am trying to shape my career in the IT industry.</h4>
 
 
 
-      <h2 class="text-4xl text-center font-bold pb-5 tsw">Education<h2>
+      <h2 data-aos="fade-down" data-aos-duration="2000" class="sm:text-4xl text-2xl text-center font-bold pb-5 tsw">
+        Education<h2>
 
-          <div class="flex flex-col mb-5 bg-blue-400 text-white rounded-md p-4 shadow-2xl font-bold text-2xl">
-            <h3>12th ( Higher Secondary Education )</h3>
-            <h4> Doon International Public School <span>2021 - 2022</span></h4>
+          <div data-aos="fade-up" data-aos-duration="1500"
+            class="flex flex-col mb-5 bg-blue-400 text-white rounded-md p-4 shadow-2xl font-bold text-xl sm:text-2xl">
+            <h3 class="flex justify-between">12th ( HSC ) <span>2021 - 2022</span></h3>
+            <h4> Doon International Public School </h4>
           </div>
 
-          <div class="flex flex-col bg-blue-400 text-white rounded-md p-4 shadow-2xl font-bold text-2xl">
-            <h3>Bachelors Degree (BCA)</h3>
-            <h4>Silver Oak University <span>2022 - 2025</span></h4>
+          <div data-aos="fade-up" data-aos-duration="1500"
+            class="flex flex-col bg-blue-400 text-white rounded-md p-4 shadow-2xl font-bold text-xl sm:text-2xl">
+            <h3 class="flex justify-between">BCA<span>2022 - 2025</span></h3>
+            <h4 class="flex justify-between">Silver Oak University <span>( SOCCA )</span></h4>
           </div>
 
 
 
-
-
-          <h2 class="text-3xl text-center font-bold tsw">Skills</h2>
-          <div class="flex gap-5">
-            <div class="flex bg-blue-400 text-2xl font-bold  text-white shadow-2xl rounded-xl p-3">Web Developing</div>
-            <div class="flex bg-blue-400 text-2xl font-bold  text-white shadow-2xl rounded-xl p-3">Data Management</div>
-            <div class="flex bg-blue-400 text-2xl font-bold  text-white shadow-2xl rounded-xl p-3">Public Speaking</div>
+          <h2 data-aos="fade-down" data-aos-duration="1000" class="text-3xl text-center font-bold tsw">Skills</h2>
+          <div class="flex flex-wrap gap-3 sm:gap-5">
+            <div data-aos="fade-up" data-aos-duration="1500"
+              class="flex bg-blue-400 sm:text-2xl text-xl sm:w-max w-full justify-center items-center font-bold  text-white shadow-2xl rounded-xl p-2 sm:p-3">
+              Public Speaking</div>
+            <div data-aos="fade-down" data-aos-duration="1500"
+              class="flex bg-blue-400 sm:text-2xl text-xl sm:w-max w-full justify-center items-center font-bold  text-white shadow-2xl rounded-xl p-2 sm:p-3">
+              Web Development</div>
+            <div data-aos="fade-up" data-aos-duration="1500"
+              class="flex bg-blue-400 sm:text-2xl text-xl sm:w-max w-full justify-center items-center font-bold  text-white shadow-2xl rounded-xl p-2 sm:p-3">
+              Data Management</div>
           </div>
 
 
     </div>
   </section>
-  <section class="w-screen h-screen bgp relative  flex flex-col justify-center items-center">
-    <div class="main flex gap-0 justify-end items-center flex-wrap w-screen">
+  <section class="w-screen sm:h-screen h-screen bgp relative  flex flex-col justify-center items-center">
+    <div class="main flex gap-10 sm:gap-0 p-8 justify-end items-center flex-wrap w-screen">
 
-
-      <div class="flex flex-col gap-4  justify-center items-center w-[330px]">
-        <h1 class="text-right flex flex-col text-blue-900 gap-2 font-bold text-2xl" id="Contact">Contact Us <span
-            class="block ml-1 shadow-2xl w-1/2 h-1 bg-cyan-900 tsw"></span></h1>
-        <h1 class="w-full font-bold text-justify">Hello Everyone! Have a great day :) I am here to help you. If you want
+      <div data-aos="fade-right" data-aos-duration="1500"
+        class="flex rounded-3xl  p-5 flex-col gap-4 backdrop-blur-md shadow-2xl drop-shadow-3xl justify-center items-center sm:w-[330px]">
+        <h1 class="text-right flex flex-col text-white ts  gap-2 font-bold text-2xl" id="Contact">Contact Us <span
+            class="block ml-1 shadow-2xl w-1/2 h-1 bg-black tsw"></span></h1>
+        <h1 class="w-full text-white sm:text-blue-400 sm:tsw  font-bold text-justify">Hello Everyone! Have a great day
+          :) I am here to help you. If you want
           to know something or you have any suggestion then please Massage me. Thank You.</h1>
         <form action="" method="get" class="flex flex-col w-full gap-4">
           <input placeholder="Name"
@@ -234,9 +447,9 @@
           <input placeholder="E-mail"
             class="rounded-md shadow-2xl focus:border-b-2 focus:border-b-blue-500 p-1 pl-3 font-bold focus:outline-none"
             title="Email" type="email" name="name" id="" required>
-          <textarea placeholder="Massage"
+          <textarea placeholder="Message"
             class="rounded-md shadow-2xl focus:border-b-2 focus:border-b-blue-500 p-1 resize-none pl-3 font-bold focus:outline-none"
-            title="Massage" name="Massage" id="msg" cols="20" rows="5" required></textarea>
+            title="Message" name="Message" id="msg" cols="20" rows="5" required></textarea>
           <input type="button" value="Submit"
             class="w-full shadow-2xl bg-blue-500 p-2 rounded-md text-white font-bold hover:bg-white transition-all hover:text-blue-500 hover:border-2 hover:border-blue-500 cursor-pointer">
         </form>
@@ -244,39 +457,62 @@
 
 
 
-      <div class="child flex justify-center items-center w-[45%]">
+      <div class="child flex justify-center w-full items-center pb-6 sm:w-[45%]">
 
-        <div
-          class="center relative overflow-hidden shadow-2xl  rounded-full w-[500px] h-[500px] flex flex-col justify-center items-center">
-          <div class="triangle absolute backdrop-contrast-125  z-10">
+        <div data-aos="fade-right" data-aos-duration="1500"
+          class="center relative overflow-hidden shadow-2xl backdrop-blur-md drop-shadow-3xl  rounded-full w-[350px] h-[150px] sm:w-[500px] sm:h-[500px] flex flex-col justify-center items-center">
+          <div class="triangle  absolute backdrop-contrast-125  z-10">
           </div>
-          <h1 class="flex flex-col justify-center items-center z-30 font-bold text-blue-100 text-2xl">Connect With Me On
+          <h1 class="flex flex-col justify-center items-center z-30 font-bold text-blue-100 ts text-xl sm:text-2xl">
+            Connect With Me On
             <span class="line block w-1/2 h-1 bg-black shadow-2xl mt-2"></span>
           </h1>
           <ul class="flex z-30 gap-5 p-5 justify-center w-1/2 items-center">
-            <li><a href="https://github.com/Prerna-dev" target="blank"><i
-                  class="fab fa-github text-3xl p-5 bg-white hover:text-white w-[70px] h-[70px] flex justify-center items-center hover:-translate-y-1 transition-transform shadow-xl rounded-full hover:bg-black "></i></a>
+            <li><a title="Github" href="https://github.com/Prerna-dev" target="blank"><i
+                  class="fab fa-github text-3xl p-5 bg-white hover:text-white w-[35px] h-[35px] sm:w-[70px] sm:h-[70px] flex justify-center items-center hover:-translate-y-1 transition-transform shadow-xl rounded-full hover:bg-black "></i></a>
             </li>
-            <li><a href="https://www.instagram.com/prerna._.x/" target="blank"><i
-                  class="fab fa-instagram text-3xl p-5 bg-white hover:text-white w-[70px] h-[70px] flex justify-center items-center hover:-translate-y-1 transition-transform shadow-xl rounded-full hover:bg-pink-400 "></i></a>
+            <li><a title="instagram" href="https://www.instagram.com/prerna._.x/" target="blank">
+                <iz
+                  class="fab fa-instagram text-3xl p-5 bg-white hover:text-white w-[35px] h-[35px] sm:w-[70px] sm:h-[70px] flex justify-center items-center hover:-translate-y-1 transition-transform shadow-xl rounded-full hover:bg-pink-400 ">
+                </iz>
+              </a>
             </li>
-            <li><a href="https://www.linkedin.com/in/prerna-tyagi-994a49264/" target="blank"><i
-                  class="fab fa-linkedin text-3xl p-5 bg-white hover:text-white w-[70px] h-[70px] flex justify-center items-center hover:-translate-y-1 transition-transform shadow-xl rounded-full hover:bg-blue-500 "></i></a>
+            <li><a title="LinkedIn" href="https://www.linkedin.com/in/prerna-tyagi-994a49264/" target="blank"><i
+                  class="fab fa-linkedin text-3xl p-5 bg-white hover:text-white w-[35px] h-[35px] sm:w-[70px] sm:h-[70px] flex justify-center items-center hover:-translate-y-1 transition-transform shadow-xl rounded-full hover:bg-blue-500 "></i></a>
             </li>
-            <li><a href="https://www.facebook.com" target="blank"><i
-                  class="fab fa-facebook text-3xl p-5 bg-white hover:text-white w-[70px] h-[70px] flex justify-center items-center hover:-translate-y-1 transition-transform shadow-xl rounded-full hover:bg-blue-700 "></i></a>
+            <li><a title="Facebook" href="https://www.facebook.com" target="blank"><i
+                  class="fab fa-facebook text-3xl p-5 bg-white hover:text-white w-[35px] h-[35px] sm:w-[70px] sm:h-[70px] flex justify-center items-center hover:-translate-y-1 transition-transform shadow-xl rounded-full hover:bg-blue-700 "></i></a>
             </li>
           </ul>
         </div>
       </div>
     </div>
     <footer class="flex absolute  bottom-0 justify-center bg-blue-900 items-center w-full p-3">
-      <h1 class=" font-bold text-2xl text-blue-200 ">All Rights Reserved By &copy; Prerna Tyagi</h1>
+      <h1 class=" font-bold text-xl sm:text-2xl text-blue-200 ">All Rights Reserved By &copy; <span
+          class="hover:text-pink-400 ts cursor-pointer" onclick='window.open(MyWeb)'> Prerna Tyagi</span> </h1>
     </footer>
 
   </section>
 
 
 </body>
+<script>
+  AOS.init();
+  var MyWeb = "https://prernatyagi.me";
+  var Menu = document.getElementById("Menu");
+  var Bar = document.getElementById("bar");
+  function menuBtnFunction(menuBtn) {
+    Menu.classList.toggle("show-Menu")
+    Menu.classList.toggle("show");
+    Menu.classList.toggle("hide");
+    menuBtn.classList.toggle("active");
+  }
+  function closeBar() {
+    Menu.classList.toggle("show-Menu")
+    Menu.classList.toggle("show");
+    Menu.classList.toggle("hide");
+    Bar.classList.toggle("active");
+  }
+</script>
 
 </html>
