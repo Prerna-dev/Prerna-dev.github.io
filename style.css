@@ -1,0 +1,327 @@
+body::-webkit-scrollbar {
+    display: none;
+    font-family: cursive;
+
+  }
+
+  html {
+    scroll-behavior: smooth;
+
+  }
+
+  *::selection {
+    background-color: #df62f2;
+    padding: 1rem;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+
+  }
+
+  .ts {
+    text-shadow: 0 0 5px #000;
+  }
+
+  .bg1 {
+    background: url("bg1.jpg");
+    background-size: cover;
+  }
+
+  .logo {
+    background: url("logo.jpg");
+    background-size: cover;
+    animation: ud 3s infinite linear;
+    filter: hue-rotate(320deg);
+
+  }
+ 
+  .logo:hover {
+    animation: hueChange .5s linear;
+    animation-iteration-count: initial;
+    filter: hue-rotate(0deg);
+    animation: ud 3s infinite linear;
+    cursor: pointer;
+    transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+
+  @keyframes hueChange {
+    0% {
+      filter: hue-rotate(320deg);
+    }
+
+    50% {
+      filter: hue-rotate(15deg);
+    }
+
+    100% {
+      filter: hue-rotate(0deg);
+    }
+  }
+
+  @keyframes ud {
+    0% {
+      transform: translateY(-3%);
+    }
+
+    50% {
+      transform: translateY(0%);
+    }
+
+    100% {
+      transform: translateY(-3%);
+    }
+  }
+
+  .dynamic {
+    animation: typing 3s infinite linear;
+  }
+
+  @keyframes typing {
+    0% {
+      margin-top: -20%;
+    }
+
+    35% {
+      margin-top: -40%;
+
+    }
+
+    70% {
+      margin-top: -60%;
+
+    }
+
+    100% {
+      margin-top: -60%;
+
+    }
+  }
+
+  .container {
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .static-text {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: normal;
+  }
+
+  .dynamic-text {
+    margin-left: 1.3em;
+    height: 90px;
+    line-height: 90px;
+    overflow: hidden;
+  }
+
+  .dynamic-text li {
+    list-style: none;
+    color: #005df3;
+    font-size: 2rem;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+    animation: slide 12s steps(4) infinite;
+  }
+
+  @keyframes slide {
+    100% {
+      top: -360px;
+    }
+  }
+
+  .dynamic-text li span {
+    position: realtive;
+    margin: 5px 0;
+    line-height: 80px;
+  }
+
+  .dynamic-text li span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 25%;
+    height: 50%;
+    width: 100%;
+    background: #000040;
+    border-left: 5px solid #fff;
+    animation: typing 3s steps(10) infinite;
+  }
+
+  @keyframes typing {
+
+    40%,
+    60% {
+      left: calc(100% + 30px);
+    }
+
+    100% {
+      left: 0;
+    }
+
+  }
+
+  @media screen and (max-width:500px) {
+    .relative .triangle {
+      display: none;
+    }
+  }
+
+
+  .bgp {
+    background: url("16326536_rm222batch4-mind-18.jpg");
+    background-size: cover;
+    /* z-index: -7; */
+  }
+
+  .tsw {
+    text-shadow: 0 0 5px #fff;
+
+  }
+
+  .bsw {
+    box-shadow: 0 0 2px #fff;
+  }
+
+  .triangle {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    width: inherit;
+    height: inherit;
+    background: rgb(63, 203, 251);
+    background: -moz-radial-gradient(circle, rgba(63, 203, 251, 1) 0%, rgba(15, 109, 237, 0.9641981792717087) 66%);
+    background: -webkit-radial-gradient(circle, rgba(63, 203, 251, 1) 0%, rgba(15, 109, 237, 0.9641981792717087) 66%);
+    background: radial-gradient(circle, rgba(63, 203, 251, 1) 0%, rgba(15, 109, 237, 0.9641981792717087) 66%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3fcbfb", endColorstr="#0f6ded", GradientType=1);
+  }
+
+  /* HumburgerMenu Animation */
+  .height {
+    height: 0;
+    transition: all 2s linear;
+
+  }
+
+
+
+  .show-Menu {
+    height: max-content;
+  }
+
+  .show {
+    animation: show .5s linear;
+    animation-iteration-count: initial;
+  }
+
+  .hide {
+    animation: hide .5s linear;
+    animation-iteration-count: initial;
+  }
+
+  @keyframes hide {
+    0% {
+      height: 10rem;
+
+    }
+
+    100% {
+      height: 0;
+    }
+  }
+
+  @keyframes show {
+    0% {
+      height: 0;
+    }
+
+    100% {
+      height: 10rem;
+    }
+  }
+
+
+
+  /* Menu Button 5 */
+  .menu-btn-5 {
+    height: 32px;
+    width: 40px;
+    cursor: pointer;
+  }
+
+  .menu-btn-5 span:nth-child(1),
+  .menu-btn-5 span:nth-child(1)::before,
+  .menu-btn-5 span:nth-child(1)::after {
+    background: #3fe5ff;
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    margin-top: 13px;
+
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    -o-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+
+  .menu-btn-5 span:nth-child(1)::before {
+    margin-top: -12px;
+
+    -webkit-transition: .3s ease-in-out .3s;
+    -moz-transition: .3s ease-in-out .3s;
+    -o-transition: .3s ease-in-out .3s;
+    transition: .3s ease-in-out .3s;
+  }
+
+  .menu-btn-5 span:nth-child(1)::after {
+    margin-top: 12px;
+
+    -webkit-transition: .3s ease-in-out .3s;
+    -moz-transition: .3s ease-in-out .3s;
+    -o-transition: .3s ease-in-out .3s;
+    transition: .3s ease-in-out .3s;
+  }
+
+  .menu-btn-5 span:nth-child(2) {
+    background: #3fe5ff;
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 3px;
+    margin-top: 13px;
+
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    -o-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+
+  .menu-btn-5.active span:nth-child(1)::before,
+  .menu-btn-5.active span:nth-child(1)::after {
+    margin-top: 0;
+  }
+
+  .menu-btn-5.active span:nth-child(1) {
+    -webkit-transition: .5s ease-in-out .6s;
+    -moz-transition: .5s ease-in-out .6s;
+    -o-transition: .5s ease-in-out .6s;
+    transition: .5s ease-in-out .5s;
+
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .menu-btn-5.active span:nth-child(2) {
+    width: 40px;
+
+    -webkit-transition: .3s ease-in-out .8s;
+    -moz-transition: .3s ease-in-out .8s;
+    -o-transition: .3s ease-in-out .8s;
+    transition: .3s ease-in-out .8s;
+  }
